@@ -3,4 +3,5 @@
     <string name="sentstr">sent</string>
     <string name="prefEng">MySentenceEng</string>
     <string name="prefHeb">MySentenceHeb</string>
+    <string name="flagLang">languageFlag</string>
 </resources>

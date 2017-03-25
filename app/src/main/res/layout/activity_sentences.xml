@@ -3,7 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/image"
+    android:background="@drawable/imageheb"
+    android:id="@+id/parentLayout"
     tools:context="com.example.olga.sentences.SentencesActivity">
 
     <TextView
@@ -13,7 +14,6 @@
         android:layout_gravity="center"
         android:layout_weight="1"
         android:gravity="center"
-        android:text="TextView"
         android:textColor="@android:color/holo_red_light"
         android:textSize="30dp"
         android:textStyle="bold|italic" />
