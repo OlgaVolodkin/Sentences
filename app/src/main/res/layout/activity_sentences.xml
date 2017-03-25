@@ -4,8 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/image"
-    tools:context="com.example.olga.sentences.HebSentencesActivity">
-
+    tools:context="com.example.olga.sentences.SentencesActivity">
 
     <TextView
         android:id="@+id/hebTextView"
@@ -16,6 +15,6 @@
         android:gravity="center"
         android:text="TextView"
         android:textColor="@android:color/holo_red_light"
-        android:textSize="40dp"
+        android:textSize="30dp"
         android:textStyle="bold|italic" />
 </LinearLayout>

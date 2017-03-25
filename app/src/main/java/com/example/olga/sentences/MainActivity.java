@@ -24,51 +24,41 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void endBtnClk(View view) {
-
         if (arrayEng.size() == 0) {
            buildArrayListEng();
         }
        else {
             Collections.shuffle(arrayEng);
-
-            Intent intent = new Intent(MainActivity.this, EngSentencesActivity.class);
-            intent.putExtra("sentEng", arrayEng.get(0));
+            Intent intent = new Intent(MainActivity.this, SentencesActivity.class);
+            intent.putExtra(getString(R.string.sentstr), arrayEng.get(0));
             startActivity(intent);
        }
-
     }
 
     public void hebBtnClk(View view) {
-
         if (arrayHeb.size() == 0) {
             buildArrayListHeb();
         }
         else {
             Collections.shuffle(arrayHeb);
-
-            Intent intent = new Intent(MainActivity.this, HebSentencesActivity.class);
-            intent.putExtra("sentHeb", arrayHeb.get(0));
+            Intent intent = new Intent(MainActivity.this, SentencesActivity.class);
+            intent.putExtra(getString(R.string.sentstr), arrayHeb.get(0));
             startActivity(intent);
         }
     }
 
     private void buildArrayListHeb() {
         new AsyncTask<Void, Void, ArrayList<String>>() {
-
-            SharedPreferences prefs = getSharedPreferences("MySentenceHeb", MODE_PRIVATE);
-
+            SharedPreferences prefs = getSharedPreferences(getString(R.string.prefHeb), MODE_PRIVATE);
             @Override
             protected ArrayList<String> doInBackground(Void... voids) {
-
                 //if (prefs.contains("MySentenceHeb") == false) {
-
                     Sentences sentences = new Sentences();
                     arrayHeb = sentences.buildHeb();
-
                     SharedPreferences.Editor editor = prefs.edit();
                     Set<String> set = new HashSet<>();
                     set.addAll(arrayHeb);
-                    editor.putStringSet("MySentenceHeb", set);
+                    editor.putStringSet(getString(R.string.prefHeb), set);
                     editor.commit();
                 //}
                 return arrayHeb;
@@ -77,38 +67,29 @@ public class MainActivity extends AppCompatActivity {
             @Override
             protected void onPostExecute(ArrayList<String> strings) {
                 super.onPostExecute(strings);
-
-                Set<String> set = prefs.getStringSet("MySentenceHeb", null);
+                Set<String> set = prefs.getStringSet(getString(R.string.prefHeb), null);
                 ArrayList<String> sample = new ArrayList<>(set);
-
                 Collections.shuffle(sample);
-
-                Intent intent = new Intent(MainActivity.this, HebSentencesActivity.class);
+                Intent intent = new Intent(MainActivity.this, SentencesActivity.class);
                 //intent.putStringArrayListExtra("sent", arrayHeb);
-                intent.putExtra("sentHeb",sample.get(0));
+                intent.putExtra(getString(R.string.sentstr),sample.get(0));
                 startActivity(intent);
-
             }
         }.execute();
     }
 
     private void buildArrayListEng() {
         new AsyncTask<Void, Void, ArrayList<String>>() {
-
-            SharedPreferences prefs = getSharedPreferences("MySentenceEng", MODE_PRIVATE);
-
+            SharedPreferences prefs = getSharedPreferences(getString(R.string.prefEng), MODE_PRIVATE);
             @Override
             protected ArrayList<String> doInBackground(Void... voids) {
-
                 //if (prefs.contains("MySentenceEng") == false) {
-
                     Sentences sentences = new Sentences();
                     arrayEng = sentences.buildEng();
-
                     SharedPreferences.Editor editor = prefs.edit();
                     Set<String> set = new HashSet<>();
                     set.addAll(arrayEng);
-                    editor.putStringSet("MySentenceEng", set);
+                    editor.putStringSet(getString(R.string.prefEng), set);
                     editor.commit();
              //   }
                 return arrayEng;
@@ -117,19 +98,13 @@ public class MainActivity extends AppCompatActivity {
             @Override
             protected void onPostExecute(ArrayList<String> strings) {
                 super.onPostExecute(strings);
-
-                Set<String> set = prefs.getStringSet("MySentenceEng", null);
+                Set<String> set = prefs.getStringSet(getString(R.string.prefEng), null);
                 ArrayList<String> sample = new ArrayList<>(set);
-
                 Collections.shuffle(sample);
-
-                Intent intent = new Intent(MainActivity.this, EngSentencesActivity.class);
-                intent.putExtra("sentEng",sample.get(0));
+                Intent intent = new Intent(MainActivity.this, SentencesActivity.class);
+                intent.putExtra(getString(R.string.sentstr),sample.get(0));
                 startActivity(intent);
-
             }
         }.execute();
     }
-
-
 }
