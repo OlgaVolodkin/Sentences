@@ -61,26 +61,26 @@ public class MainActivity extends AppCompatActivity {
             @Override
             protected ArrayList<String> doInBackground(Void... voids) {
                 if (flg == 1) {
-                    //if (prefs.contains(getString(R.string.prefHeb)) == false) {
-                    Sentences sentences = new Sentences();
-                    arrayHeb = sentences.buildHeb();
-                    SharedPreferences.Editor editor = prefs.edit();
-                    Set<String> set = new HashSet<>();
-                    set.addAll(arrayHeb);
-                    editor.putStringSet(getString(R.string.prefHeb), set);
-                    editor.commit();
-                    //}
+                    if (prefs.contains(getString(R.string.prefHeb)) == false) {
+                        Sentences sentences = new Sentences();
+                        arrayHeb = sentences.buildHeb();
+                        SharedPreferences.Editor editor = prefs.edit();
+                        Set<String> set = new HashSet<>();
+                        set.addAll(arrayHeb);
+                        editor.putStringSet(getString(R.string.prefHeb), set);
+                        editor.commit();
+                    }
                 }
                 if (flg == ENG) {
-                    //if (prefs.contains(getString(R.string.prefEng)) == false) {
-                    Sentences sentences = new Sentences();
-                    arrayEng = sentences.buildEng();
-                    SharedPreferences.Editor editor = prefs.edit();
-                    Set<String> set = new HashSet<>();
-                    set.addAll(arrayEng);
-                    editor.putStringSet(getString(R.string.prefEng), set);
-                    editor.commit();
-                    //}
+                    if (prefs.contains(getString(R.string.prefEng)) == false) {
+                        Sentences sentences = new Sentences();
+                        arrayEng = sentences.buildEng();
+                        SharedPreferences.Editor editor = prefs.edit();
+                        Set<String> set = new HashSet<>();
+                        set.addAll(arrayEng);
+                        editor.putStringSet(getString(R.string.prefEng), set);
+                        editor.commit();
+                    }
                 }
                 return arrayHeb;
             }
