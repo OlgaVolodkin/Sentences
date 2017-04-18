@@ -1,4 +1,4 @@
-package com.example.olga.sentences;
+package com.olgav.android.sentences;
 
 import java.util.ArrayList;
 

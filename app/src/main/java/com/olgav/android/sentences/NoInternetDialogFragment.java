@@ -1,10 +1,12 @@
-package com.example.olga.sentences;
+package com.olgav.android.sentences;
 
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.v4.app.DialogFragment;
+
+import com.olgav.android.sentences.R;
 
 /**
  * Created by olga on 4/3/17.

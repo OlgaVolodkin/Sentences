@@ -1,4 +1,4 @@
-package com.example.olga.sentences;
+package com.olgav.android.sentences;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -7,6 +7,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 
+import com.olgav.android.sentences.R;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 

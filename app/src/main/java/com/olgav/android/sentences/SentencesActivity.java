@@ -1,10 +1,12 @@
-package com.example.olga.sentences;
+package com.olgav.android.sentences;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+
+import com.olgav.android.sentences.R;
 
 public class SentencesActivity extends AppCompatActivity {
 
